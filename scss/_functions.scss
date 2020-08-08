@@ -1,0 +1,9 @@
+/* Function allow us to run code over and over again when we call it */
+
+@function calc-width($val) {
+    @return 100%/12 * $val;
+}
+
+@function calc-fontSize($val:1) {
+    @return 12px * $val;
+}

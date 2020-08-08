@@ -1,0 +1,23 @@
+/* Mixins is a block of code, which groups bunch of reusable of CSS styles */
+
+/* Plain Mixins */
+@mixin heading {
+    font-size: 18px;
+    color: $indigo;
+}
+
+/* Mixin with input parameter */
+@mixin align($val) {
+    text-align: $val;
+}
+
+/* Mixin with default parameter */
+@mixin article($fontSize:50px) {
+    font-size: $fontSize;
+    color: $orange;
+}
+
+/* Mixin with 'n' arguments */
+@mixin transistion($param...) {
+    transition: $param;
+}

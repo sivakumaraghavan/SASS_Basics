@@ -1,0 +1,16 @@
+/* Extend allows one selector to inherit styles of another selector */
+
+.error {
+    font-size: 18px;
+    color: red;
+}
+
+.service-error h1 {
+    @extend .error; // extending another selector styles
+}
+
+/* Placeholder it wont be compiled in css */
+%hover {
+    background-color: black;
+    cursor: pointer;
+}

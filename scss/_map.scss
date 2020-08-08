@@ -1,0 +1,30 @@
+/*
+map-get(map, key)           Returns the value for the specified key in the map
+map-has-key(map, key)       Checks whether map has the specified key. Returns true or false
+map-keys(map)               Returns a list of all keys in map.
+map-values(map)             Returns a list of all values in map.
+map-merge(map1, map2)       Appends map2 to the end of map1.
+map-remove(map, keys)       Removes the specified keys from map.
+*/
+
+$font-size:(sm:12px, md:18px, lg:24px);
+$small-size:(xxs:8px, xs:10px);
+
+$full-size: map-merge($font-size, $small-size);
+$screen : map-keys($font-size);
+$screen-size : map-values($font-size);
+
+p {
+    @if map-has-key($font-size, md) {
+        font-size: map-get($font-size, md);
+    }
+    @else {
+        font-size: map-get($font-size, sm);
+    }    
+}
+
+@each $value in $screen {
+    .text-#{$value} {
+        font-size: map-get($font-size, $value);
+    }
+}
