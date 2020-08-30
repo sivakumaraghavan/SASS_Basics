@@ -1,0 +1,196 @@
+/*
+SASS - SASS, SCSS
+Variable
+Functions
+Mixins
+Loops
+Nested 
+Extends
+Imports/Partials
+*/
+/* Function allow us to run code over and over again when we call it */
+/* Mixins is a block of code, which groups bunch of reusable of CSS styles */
+/* Plain Mixins */
+/* Mixin with input parameter */
+/* Mixin with default parameter */
+/* Mixin with 'n' arguments */
+.col-1 {
+  width: 8.33333%;
+  transition: 0.5s; }
+
+.col-2 {
+  width: 16.66667%;
+  transition: 0.5s; }
+
+.col-3 {
+  width: 25%;
+  transition: 0.5s; }
+
+.col-4 {
+  width: 33.33333%;
+  transition: 0.5s; }
+
+.col-5 {
+  width: 41.66667%;
+  transition: 0.5s; }
+
+.col-6 {
+  width: 50%;
+  transition: 0.5s; }
+
+.col-7 {
+  width: 58.33333%;
+  transition: 0.5s; }
+
+.col-8 {
+  width: 66.66667%;
+  transition: 0.5s; }
+
+.col-9 {
+  width: 75%;
+  transition: 0.5s; }
+
+.col-10 {
+  width: 83.33333%;
+  transition: 0.5s; }
+
+.col-11 {
+  width: 91.66667%;
+  transition: 0.5s; }
+
+.blue-bg {
+  background-color: #0d6efd; }
+
+.indigo-bg {
+  background-color: #6610f2; }
+
+.purple-bg {
+  background-color: #6f42c1; }
+
+.pink-bg {
+  background-color: #d63384; }
+
+.red-bg {
+  background-color: #dc3545; }
+
+.orange-bg {
+  background-color: #fd7e14; }
+
+.yellow-bg {
+  background-color: #ffc107; }
+
+.green-bg {
+  background-color: #198754; }
+
+.teal-bg {
+  background-color: #20c997; }
+
+.cyan-bg {
+  background-color: #0dcaf0; }
+
+.white-bg {
+  background-color: #fff; }
+
+.gray-bg {
+  background-color: #6c757d; }
+
+.gray-dark-bg {
+  background-color: #343a40; }
+
+.btn-primary {
+  background-color: #0d6efd; }
+
+.btn-secondary {
+  background-color: #6c757d; }
+
+.btn-success {
+  background-color: #198754; }
+
+.btn-info {
+  background-color: #0dcaf0; }
+
+.btn-warning {
+  background-color: #ffc107; }
+
+.btn-danger {
+  background-color: #dc3545; }
+
+.btn-light {
+  background-color: #f8f9fa; }
+
+.btn-dark {
+  background-color: #343a40; }
+
+h1 {
+  font-size: 12px;
+  margin: .5rem; }
+
+h2 {
+  font-size: 24px;
+  margin: .5rem; }
+
+h3 {
+  font-size: 36px;
+  margin: .5rem; }
+
+h4 {
+  font-size: 48px;
+  margin: .5rem; }
+
+h5 {
+  font-size: 60px;
+  margin: .5rem; }
+
+h6 {
+  font-size: 72px;
+  margin: .5rem; }
+
+/*
+map-get(map, key)           Returns the value for the specified key in the map
+map-has-key(map, key)       Checks whether map has the specified key. Returns true or false
+map-keys(map)               Returns a list of all keys in map.
+map-values(map)             Returns a list of all values in map.
+map-merge(map1, map2)       Appends map2 to the end of map1.
+map-remove(map, keys)       Removes the specified keys from map.
+*/
+p {
+  font-size: 18px; }
+
+.text-sm {
+  font-size: 12px; }
+
+.text-md {
+  font-size: 18px; }
+
+.text-lg {
+  font-size: 24px; }
+
+.container {
+  width: 96%;
+  padding: 15px; }
+  .container .row {
+    display: flex; }
+    .container .row > [class^="col-"] {
+      padding-top: .75rem;
+      padding-bottom: .75rem;
+      border: 1px solid white; }
+  .container .text {
+    color: #ffffff; }
+    .container .text__center {
+      text-align: center; }
+    .container .text__left {
+      text-align: left; }
+    .container .text__right {
+      text-align: right; }
+    .container .text__justify {
+      text-align: justify; }
+
+/* Extend allows one selector to inherit styles of another selector */
+.error, .service-error h1 {
+  font-size: 18px;
+  color: red; }
+
+/* Placeholder it wont be compiled in css */
+.col-1:hover, .col-2:hover, .col-3:hover, .col-4:hover, .col-5:hover, .col-6:hover, .col-7:hover, .col-8:hover, .col-9:hover, .col-10:hover, .col-11:hover {
+  background-color: black;
+  cursor: pointer; }
