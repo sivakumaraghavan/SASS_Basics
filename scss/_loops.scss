@@ -20,12 +20,13 @@
     }
 }
 
-$x:1;
-
-@while $x <= 6 {
+$x:6;
+$y:1;
+@while $x > 0 {
     h#{$x} {
-        font-size: calc-fontSize($x);
+        font-size: calc-fontSize($y);
         margin: .5rem;
     }
-    $x : $x + 1;
+    $x : $x - 1;
+    $y : $y + 1;
 }

@@ -3,26 +3,423 @@
     <head>
         <title>SASS Tutorial</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/dracula-prism/css/dracula-prism.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body class="container">
         <div>
-            <h6 class="text__center">SASS Tutorial</h6>
+            <h1 class="text__center heading">SASS <span>Menu</span></h1>
         </div>
-        <div class="row">
-            <div class="col-6 indigo-bg text text__center">Col-6</div>
-            <div class="col-6 purple-bg text text__center">Col-6</div>
-        </div>
-        <div class="row">
-            <div class="col-4 pink-bg text text__center">Col-4</div>
-            <div class="col-4 red-bg text text__center">Col-4</div>
-            <div class="col-4 orange-bg text text__center">Col-4</div>
-        </div>
-        <div class="row">
-            <div class="col-3 blue-bg text text__center">Col-3</div>
-            <div class="col-3 teal-bg text text__center">Col-3</div>
-            <div class="col-3 cyan-bg text text__center">Col-3</div>
-            <div class="col-3 gray-bg text text__center">Col-3</div>
-        </div>
+        <section id="sass-menu">
+            <div class="row">
+                <div class="col-6 indigo-bg text text__center"><a href=#variables>Variable</a></div>
+                <div class="col-6 purple-bg text text__center"><a href=#function>Function</a></div>
+            </div>
+            <div class="row">
+                <div class="col-4 pink-bg text text__center"><a href=#mixins>Mixins</a></div>
+                <div class="col-4 red-bg text text__center"><a href=#extend>Extend</a></div>
+                <div class="col-4 orange-bg text text__center"><a href=#nested>Nested</a></div>
+            </div> 
+            <div class="row">
+                <div class="col-3 blue-bg text text__center"><a href=#loops>Loops</a></div>
+                <div class="col-3 teal-bg text text__center"><a href=#maps>Map</a></div>
+                <div class="col-3 cyan-bg text text__center"><a href=#imports>Import</a></div>
+                <div class="col-3 gray-bg text text__center"><a href=#sass-to-css>SASS to CSS</a></div>
+            </div>
+        </section>
+        <!--Intro-->
+        <section id="sass-intro">
+            <div id="intro">
+                <h3 class="text__center">CSS with Super Powers</h3>
+                <p class="text-justify">
+                    <strong class="text-success">S</strong>yntactically <strong class="text-primary">A</strong>wesome <strong class="text-info">S</strong>tyle <strong class="text-warning">S</strong>heets(SASS) is a preprocessor language that’s compiled to CSS. 
+                    It allows you to use <strong>variables</strong>, <strong>nested rules</strong>, <strong>mixins</strong>, <strong>functions</strong>, <strong>imports</strong> and more, all with a fully CSS-compatible syntax. 
+                    Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects.
+                    Sass is completely compatible with all versions of CSS. 
+                    We take this compatibility seriously, so that you can seamlessly use any available CSS libraries.
+                    Sass is actively supported and developed by a consortium of several tech companies and hundreds of developers.
+                </p>
+                <div>
+                    <strong>Features : </strong>
+                    <span>CSS Compatible</span>
+                    <span>Feature Rich</span>
+                    <span>Large Community</span>
+                </div>
+            </div>
+        </section>
+        <!--Variables-->
+        <section id="variables">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Variables</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-2 text-justify">
+                            Sass variables are simple: you assign a value to a name that begins with <strong>$</strong>, 
+                            and then you can refer to that name instead of the value itself. Variables make it possible to reduce repetition.
+                            Sass variables, like all Sass identifiers, treat hyphens and underscores as identical. 
+                            This means that $font-size and $font_size both refer to the same variable.
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css"> /* Variable declaration */
+$blue:    #0d6efd; 
+$indigo:  #6610f2;   
+
+/* Key value pair variables */
+$colors: (
+"blue":     $blue,
+"indigo":   $indigo,
+)</code></pre>
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">/* Normal variable usage */
+.text {
+    color: $white; 
+}
+/* Using key value pair */
+.content {
+    color: map-get($colors, indigo);
+    background-color: $white;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Function-->
+        <section id="function">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Function</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-3">
+                            Functions make it easy to abstract out common formulas and behaviors in a readable way.
+                            Functions are defined using the @function at-rule, which is written <code>@function name(arguments...) { ... }</code>.
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">/* Function without arguments */
+@function calc-fontSize() {
+    @return 12px * $val;
+}
+/* Function with argument */
+@function calc-width($val) {
+    @return 100%/12 * $val;
+}
+/* Function with default arguments */
+@function calc-fontSize($val:1) {
+    @return 12px * $val;
+}</code></pre>
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">/* Function without arguments */
+#container-wrap {
+    width: calc-width();
+}
+/* Function with argument */
+#col-one {
+    width: calc-width(1);
+}
+/* Function with default arguments */
+#content {
+    font-size: calc-fontSize(2);
+}
+</code></pre>                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Mixins-->
+        <section id="mixins">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Mixins</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-2 text-justify">
+                            Mixins allow you to define styles that can be re-used throughout your stylesheet. They make it easy to distribute collections of styles in libraries.
+                            Mixins are defined using the @mixin at-rule, which is written <code>@mixin name { ... }</code> or <code>@mixin name(<arguments...>) { ... }</code>.
+                            Mixins are included into the current context using the @include at-rule, which is written @include <name> or @include <name>(<arguments...>), with the name of the mixin being included.
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">/* Plain Mixins */
+@mixin heading {
+    font-size: 18px;
+    color: $indigo;
+}
+/* Mixin with input parameter */
+@mixin align($val) {
+    text-align: $val;
+}
+/* Mixin with default parameter */
+@mixin article($fontSize:50px) {
+    font-size: $fontSize;
+    color: $orange;
+}
+/* Mixin with 'n' arguments */
+@mixin transistion($param...) {
+    transition: $param;
+}
+</code></pre>
+</div>
+                            <div class="col-md-6">
+<pre><code class="language-css">/* Plain Mixins */
+#intro-heading {
+    @include heading;
+}
+/* Mixin with input parameter */
+#heading {
+    color:$white;
+    @include align(center);
+}
+/* Mixin with default parameter */
+#content {
+    @include article;
+}
+/* Mixin with 'n' arguments */
+#content-wrap {
+    color: $indigo;
+    @include transistion(0.5s ease-in);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Extend-->
+        <section id="extend">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Extend</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-2 text-justify">
+                            There are often cases when designing a page when one class should have all the styles of another class, 
+                            as well as its own specific styles. Sometimes you want to write a style rule that’s only intended to be extended. In that case, you can use placeholder selectors, which look like class selectors that start with % instead of (.)
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">.error {
+    font-size: 18px;
+    color: red;
+}
+
+/* extending another selector styles */
+.service-error h1 {
+    @extend .error; 
+}
+
+/* Placeholder it wont be compiled in css */
+%hover {
+    background-color: black;
+    cursor: pointer;
+}
+</code></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <pre></pre>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </section>
+        <!--Nested-->
+        <section id="nested">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Nested</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-2 text-justify">
+                            Sass variables are simple: you assign a value to a name that begins with <em>$</em>, 
+                            and then you can refer to that name instead of the value itself. Variables make it possible to reduce repetition.
+                            Sass variables, like all Sass identifiers, treat hyphens and underscores as identical. 
+                            This means that $font-size and $font_size both refer to the same variable.
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">
+.text {
+    color: $white;
+    &__center {
+        @include align(center);
+    }
+    &>a {
+        text-decoration: none;
+        color: $white;
+    }
+ }
+</code></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <pre></pre>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </section>
+        <!--Loops-->
+        <section id="loops">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Loops</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-2 text-justify">
+                            Sass variables are simple: you assign a value to a name that begins with <em>$</em>, 
+                            and then you can refer to that name instead of the value itself. Variables make it possible to reduce repetition.
+                            Sass variables, like all Sass identifiers, treat hyphens and underscores as identical. 
+                            This means that $font-size and $font_size both refer to the same variable.
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">/* For Loop */
+@for $i from 1 to 12 {
+    .col-#{$i} {
+        width: calc-width($i);
+        transition: 0.5s;
+        &:hover {
+            @extend %hover;
+        }
+    }
+}
+/* For each */
+@each $name, $color in $colors {
+    .#{$name}-bg {
+        background-color:$color;
+    }
+}
+/* While loop */
+$x:6;
+$y:1;
+@while $x > 0 {
+    h#{$x} {
+        font-size: calc-fontSize($y);
+        margin: .5rem;
+    }
+    $x : $x - 1;
+    $y : $y + 1;
+}
+</code></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <pre></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Maps-->
+        <section id="maps">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Maps</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-2 text-justify">
+                            Sass variables are simple: you assign a value to a name that begins with <em>$</em>, 
+                            and then you can refer to that name instead of the value itself. Variables make it possible to reduce repetition.
+                            Sass variables, like all Sass identifiers, treat hyphens and underscores as identical. 
+                            This means that $font-size and $font_size both refer to the same variable.
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">/*
+map-get(map, key)       Returns value for specified key in map
+map-has-key(map, key)   Checks whether map has specified key
+map-keys(map)           Returns a list of all keys in map
+map-values(map)         Returns a list of all values in map
+map-merge(map1, map2)   Appends map2 to the end of map
+map-remove(map, keys)   Removes the specified keys from map
+*/
+
+$font-size:(sm:12px, md:18px, lg:24px);
+$small-size:(xxs:8px, xs:10px);
+
+$full-size: map-merge($font-size, $small-size);
+$screen : map-keys($font-size);
+$screen-size : map-values($font-size);
+
+p {
+    @if map-has-key($font-size, md) {
+        font-size: map-get($font-size, md);
+    }
+    @else {
+        font-size: map-get($font-size, sm);
+    }    
+}
+</code></pre>
+                    </div>
+                        <div class="col-md-6">
+                            <pre></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Imports-->
+        <section id="imports">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Imports</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-2 text-justify">
+                            Sass extends CSS's @import rule with the ability to import Sass and CSS stylesheets, 
+                            providing access to mixins, functions, and variables and combining multiple stylesheets' CSS together.
+                            Unlike plain CSS imports, which require the browser to make multiple HTTP requests as it renders your page,
+                            Sass imports are handled entirely during compilation.
+                        </div>
+                        <div class="col-md-6">
+<pre><code class="language-css">/* importing sass files */
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'loops';
+@import 'map';
+@import 'nested';
+@import 'extend';    
+</code></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <pre></pre>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </section>
+        <!--Sass to CSS-->
+        <section id="sass-to-css">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 class="card-title">Sass to CSS</h5> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="p-2 text-justify">
+                            Convert your SASS to CSS here
+                        </div>
+                        <div class="col-md-6">
+                            <pre></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <pre></pre>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/prism.min.js" integrity="sha512-WkVkkoB31AoI9DAk6SEEEyacH9etQXKUov4JRRuM1Y681VsTq7jYgrRw06cbP6Io7kPsKx+tLFpH/HXZSZ2YEQ==" crossorigin="anonymous"></script>
     </body>
 </html>

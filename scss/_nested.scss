@@ -1,3 +1,6 @@
+html {
+   scroll-behavior: smooth;
+}
 .container {
     width: 96%;
     padding: 15px;
@@ -10,7 +13,8 @@
     }
  }
  .text {
-     color: #ffffff;
+     color: $white;
+     font-family: 'Architects Daughter';
      &__center {
         @include align(center);
      }
@@ -23,5 +27,21 @@
      &__justify {
         @include align(justify);
      }
+     &>a {
+        text-decoration: none;
+        color: $white;
+     }
  }
+}
+
+.heading {
+   color: #34252f;
+   > span {
+      font-family: 'Pacifico';
+      color: #f4ac32;
+   }
+}
+
+section {
+   padding-top: 60px;
 }

@@ -121,27 +121,27 @@ Imports/Partials
 .btn-dark {
   background-color: #343a40; }
 
-h1 {
+h6 {
   font-size: 12px;
   margin: .5rem; }
 
-h2 {
+h5 {
   font-size: 24px;
   margin: .5rem; }
 
-h3 {
+h4 {
   font-size: 36px;
   margin: .5rem; }
 
-h4 {
+h3 {
   font-size: 48px;
   margin: .5rem; }
 
-h5 {
+h2 {
   font-size: 60px;
   margin: .5rem; }
 
-h6 {
+h1 {
   font-size: 72px;
   margin: .5rem; }
 
@@ -165,6 +165,9 @@ p {
 .text-lg {
   font-size: 24px; }
 
+html {
+  scroll-behavior: smooth; }
+
 .container {
   width: 96%;
   padding: 15px; }
@@ -175,7 +178,8 @@ p {
       padding-bottom: .75rem;
       border: 1px solid white; }
   .container .text {
-    color: #ffffff; }
+    color: #fff;
+    font-family: 'Architects Daughter'; }
     .container .text__center {
       text-align: center; }
     .container .text__left {
@@ -184,6 +188,18 @@ p {
       text-align: right; }
     .container .text__justify {
       text-align: justify; }
+    .container .text > a {
+      text-decoration: none;
+      color: #fff; }
+
+.heading {
+  color: #34252f; }
+  .heading > span {
+    font-family: 'Pacifico';
+    color: #f4ac32; }
+
+section {
+  padding-top: 60px; }
 
 /* Extend allows one selector to inherit styles of another selector */
 .error, .service-error h1 {
